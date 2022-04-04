@@ -6,7 +6,7 @@ Project 1, Elk Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
-![TODO: Update the path with the name of your diagram](Images/diagram_filename.png)
+![networkdiagram](https://github.com/Oddyhernandez31/Ari31team/blob/e8718d290b4465058a8cc3b7b7b7ae76627b6ee5/Diagram%20Project13.drawio)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
