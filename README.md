@@ -54,20 +54,19 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
+Load balancing ensures that the application will be highly defended, in addition to restricting traffic to the network.
 - Question: What aspect of security do load balancers protect?
-- Answer:
+- Answer: The load balancers defends an organization distributed denial-of-service (DDoS) attacks.
 - Question: What is the advantage of a jump box?
-- Answer:
+- Answer:The advantage for a jumpbox is its extensive software library, automated backups, and customizations
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the jumpbox and Internet Protocol Address.
 - Question: What does Filebeat watch for?
-- Answer: 
+- Answer: Filebeat monitors log files or locations being specify , including CPU usage, network, and traffic. 
 - Question: What does Metricbeat record?
-- Answer: 
+- Answer: Metricbeat collects metrics and statistics to send them to output being specify. 
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -80,11 +79,11 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from public IP addresses being provided:
+- _Note: correct IP address for machine will not be displayed for disclosure.  
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by the server.
+- Question: Which machine did you allow to access your ELK VM? What was its IP address?_
 
 A summary of the access policies in place can be found in the table below.
 
