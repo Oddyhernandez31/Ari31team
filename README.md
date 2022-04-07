@@ -110,7 +110,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output](Images/docker_ps_output.png)
+![TODO: Update the path with the name of your screenshot of docker ps output] step 1: (https://github.com/Oddyhernandez31/Ari31team/blob/18bd9d45cbace42b0e56bc13e1bd02dd0bd9b0ce/Azure%20system%20setup%20step%201%20.png)
 
 name: Configure Elk VM with Docker
   hosts: elkservers
