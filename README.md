@@ -8,7 +8,8 @@ The files in this repository were used to configure the network depicted below.
 
 ![networkdiagram](https://github.com/Oddyhernandez31/Ari31team/blob/26f559f519fc753f5b712ccda845635e6d4b2e38/Project-1.png)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. 
+Select portions of the diagram file may be used to install only certain pieces of it, such as Filebeat.
 
   - Quesstion: Enter the playbook file.
   - name: Installing and Launch Filebeat
@@ -98,8 +99,9 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually.
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine.
+- _Question: What is the main advantage of automating configuration with Ansible?
+- Answer: The Advantage of automating with ansible is that it helps considerably with the representation of infrastructure as code (IAC).
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
@@ -326,6 +328,35 @@ Answer the following questions to fill in the blanks:
     	 http://[your.ELK-VM.External.IP]:5601/app/kibana
 
  Using the Playbook-filebeat-playbook.yml
+ name: Installing and Launch Filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+    # Use command module
+  - name: Download filebeat .deb file
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+
+    # Use command module
+  - name: Install filebeat .deb
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+
+    # Use copy module
+  - name: Drop in filebeat.yml
+    copy:
+      src: /etc/ansible/files/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+
+    # Use command module
+  - name: Enable and Configure System Module
+    command: filebeat modules enable system
+
+    # Use command module
+  - name: Setup filebeat
+    command: filebeat setup
+
+    # Use command module
+  - name: Start filebeat service
+    command: service filebeat start
 
  - Copy the filebeat.yml file to the /etc/ansible/files/ directory.
  - Update the configuration file to include the Private IP of the Elk-Server to the ElasticSearch and Kibana sections of the configuration file.
