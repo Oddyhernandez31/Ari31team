@@ -104,13 +104,13 @@ Ansible was used to automate configuration of the ELK machine.
 - Answer: The Advantage of automating with ansible is that it helps considerably with the representation of infrastructure as code (IAC).
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- _Questions: In 3 bullets, explain the steps of the ELK installation play, install Docker; download image
 
-The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
+The following screenshot displays the steps result of running `docker ps` after successfully configuring the ELK instance.
 
-![TODO: Update the path with the name of your screenshot of docker ps output] step 1: (https://github.com/Oddyhernandez31/Ari31team/blob/18bd9d45cbace42b0e56bc13e1bd02dd0bd9b0ce/Azure%20system%20setup%20step%201%20.png)
+!Step setup: the screenshots below show that step by step for the of docker ps output (https://github.com/Oddyhernandez31/Ari31team/blob/18bd9d45cbace42b0e56bc13e1bd02dd0bd9b0ce/Azure%20system%20setup%20step%201%20.png)
+(https://github.com/Oddyhernandez31/Ari31team/blob/c11e65369cc7a45963cbdf30f35e66ac97295693/Azure%20system%20setup%20step%202.png)
+(https://github.com/Oddyhernandez31/Ari31team/blob/c11e65369cc7a45963cbdf30f35e66ac97295693/Azure%20system%20setup%20step%203.png)
 
 name: Configure Elk VM with Docker
   hosts: elkservers
@@ -165,13 +165,16 @@ name: Configure Elk VM with Docker
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- Question: List the IP addresses of the machines you are monitoring
+- Answer: the machines that are being monitored are Web1 (IP:10.1.0.5) ,Web2 (IP:10.1.0.6), and Elk VM (IP:10.2.0.5). 
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- _Question: Specify which Beats you successfully installed
+- _Answer: the Beats that have been successfully installed are the following: (Metricbeat-config.yml, metricbeat-playbook.yml, filebeat-config.yml, filebeat-playbook.yml)
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- _Question: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events
+- _Answer: 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
