@@ -174,7 +174,7 @@ We have installed the following Beats on these machines:
 
 These Beats allow us to collect the following information from each machine:
 - _Question: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events
-- _Answer: 
+- _Answer: The different kind of data each beat collects are from Metricbeat,and filebeat. The metricbeat collects metrics and statistics. The Filebeat collects centralized log data and forwards it to the desired location. What one would expect to see would be Elasticsearch or Logstash for indexing.
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
