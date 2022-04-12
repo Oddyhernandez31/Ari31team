@@ -185,30 +185,26 @@ _Files downloaded.
   hosts: webservers
   become: yes
   tasks:
-    # Use command module
-  - name: Download filebeat .deb file
+    # Download Filebeat Debn file
+  
     command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
 
-    # Use command module
-  - name: Install filebeat .deb
+    # Install Filebeat Deb 
+ 
     command: dpkg -i filebeat-7.4.0-amd64.deb
 
-    # Use copy module
-  - name: Drop in filebeat.yml
+    # Filebeat yml
     copy:
       src: /etc/ansible/files/filebeat-config.yml
       dest: /etc/filebeat/filebeat.yml
 
-    # Use command module
-  - name: Enable and Configure System Module
+    # Enable and Configure system module
     command: filebeat modules enable system
 
-    # Use command module
-  - name: Setup filebeat
+    # Setup filebeat 
     command: filebeat setup
 
-    # Use command module
-  - name: Start filebeat service
+    # Start filesbeat Service 
     command: service filebeat start
 
 
@@ -218,36 +214,32 @@ _: Configure Elk VM with Docker
   remote_user: elk
   become: true
   tasks:
-    # Use apt module
-    - name: Install docker.io
+    # install docker.io 
+    
       apt:
         update_cache: yes
         name: docker.io
         state: present
 
-      # Use apt module
-    - name: Install pip3
+      # Install pip3
       apt:
         force_apt_get: yes
         name: python3-pip
         state: present
 
-      # Use pip module
-    - name: Install Docker python module
+      #  Install Docker python 
       pip:
         name: docker
         state: present
 
-      # Use sysctl module
-    - name: Use more memory
+      # More memory 
       sysctl:
         name: vm.max_map_count
         value: "262144"
         state: present
         reload: yes
 
-      # Use docker_container module
-    - name: download and launch a docker elk container
+      # download and launch a docker elk container
       docker_container:
         name: elk
         image: sebp/elk:761
@@ -265,34 +257,33 @@ metricbeat-config
 (https://github.com/Oddyhernandez31/Ari31team/blob/e39d776a230c12464e0241ea971e6be8b03e2a30/configuration%20files/metricbeat-configuration.yml)
 
 
-name: Install metric beat
+Install metric beat
   hosts: webservers
   become: true
   tasks:
-    # Use command module
-  - name: Download metricbeat
+    # Download metricbeat
+  
     command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.4.0-amd64.deb
 
-    # Use command module
-  - name: install metricbeat
+    # install metricbeat
+  
     command: dpkg -i metricbeat-7.4.0-amd64.deb
 
-    # Use copy module
-  - name: drop in metricbeat config
+    # drop in metricbeat config
+  
     copy:
       src: /etc/ansible/files/metricbeat-config.yml
       dest: /etc/metricbeat/metricbeat.yml
 
-    # Use command module
-  - name: enable and configure docker module for metric beat
+    # enable and configure docker module for metric beat
+  
     command: metricbeat modules enable docker
 
-    # Use command module
-  - name: setup metric beat
+    # setup metric beat
     command: metricbeat setup
 
-    # Use command module
-  - name: start metric beat
+    # start metric beat
+  
     command: service metricbeat start
 
  
