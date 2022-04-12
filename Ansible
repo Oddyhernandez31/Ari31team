@@ -2065,3 +2065,43 @@ logging.files:
 #migration.6_to_7.enabled: false
 
 
+
+
+
+---
+Installing and Launch Filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+    # Download filebeat .deb file
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+
+    # Install filebeat .deb
+   
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+
+    # Drop in filebeat.yml
+  
+    copy:
+      src: /etc/ansible/files/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+
+    #Enable and Configure System Module
+
+    command: filebeat modules enable system
+
+    # Setup filebeat
+  
+    command: filebeat setup
+
+    # Start filebeat service
+   
+    command: service filebeat start
+
+
+
+
+
+
+
+
